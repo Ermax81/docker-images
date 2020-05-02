@@ -1,0 +1,5 @@
+FROM rpi4_ubuntu:bionic
+MAINTAINER enozay.dev@gmail.com 
+
+RUN apt-get -yq install php7.2 php7.2-curl 
+

@@ -1,0 +1,16 @@
+FROM arm32v7/ubuntu:latest
+MAINTAINER enozay.dev@gmail.com 
+
+RUN apt-get update
+
+ADD env.sh /tmp/env.sh
+RUN chmod a+x /tmp/env.sh
+RUN /tmp/env.sh
+
+RUN apt-get -yq install locales cron git-core curl vim && \
+#    rm -rf /var/lib/apt/lists/* && \
+    localedef -i fr_FR -c -f UTF-8 -A /usr/share/locale/locale.alias fr_FR.UTF-8
+
+ENV LANG fr_FR.utf8
+
+
